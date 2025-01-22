@@ -13,7 +13,6 @@ A portfolio page designed with React, TypeScript, JavaScript, and SCSS.
 2. In the project directory, install dependencies:
 
     ```bash
-    npm install @mui/material @emotion/react @emotion/styled
     npm install
     ```
 

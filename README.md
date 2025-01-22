@@ -13,6 +13,7 @@ A portfolio page designed with React, TypeScript, JavaScript, and SCSS.
 2. In the project directory, install dependencies:
 
     ```bash
+    npm install @mui/material @emotion/react @emotion/styled
     npm install
     ```
 
@@ -70,3 +71,4 @@ You can choose your preferred service (e.g., [Netlify](https://www.netlify.com/)
 
 # TO DO
  - [x] make the public/favicon.ico
+ - [ ] fix "on click" of main button

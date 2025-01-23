@@ -20,10 +20,6 @@
   justify-content: center; /* Centres items vertically */
   width: $body-width;
 
-  border-style: dashed;
-  border-color: $build-old;
-  border-width: 2pt;
-
   .scroll-button{
     margin: 80px;
     color: $font-dark-color;
@@ -48,7 +44,7 @@
     transform: 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
     
     .MuiButton-endIcon {
-      transform: translateX(50px) translateY(20px) scale(1.2); /* Moves and enlarges the endIcon */
+      transform: translateX(50px) translateY(20px) scale(1); /* Moves and enlarges the endIcon */
       transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
                     color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation for transform and colour */
       color: #000000; /* Changes the endIcon to black */

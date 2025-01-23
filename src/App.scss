@@ -15,10 +15,6 @@
     flex-direction: column; /* Align children in a row */
     justify-content: flex-start; /* Align children to the left horizontally */
     align-items: flex-start; /* Align children to the top vertically */
-
-    border-style: dashed;
-    border-color: $build-old;
-    border-width: 2pt;
 }
 
 .dark-mode {

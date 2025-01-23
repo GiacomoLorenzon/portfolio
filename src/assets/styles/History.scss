@@ -1,119 +1,130 @@
 @import 'constants.scss';
 
-.history{
+.history {
   width: $body-width;
   margin-left: $margin-left-body;
   margin-right: $margin-right-body;
+  padding: 0;
 
-  border-style: dashed;
-  border-color: $build-old;
-  border-width: 2pt;
+  h1 {
+    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    background-clip: text; /* For Firefox */
+    color: transparent; /* Make text transparent so the gradient shows */
+    display: inline-block; /* Shrink-wrap the element around the text */
+    padding: 0;
+    margin-top: 2em;
+  }
 
-  .items-container {
-    background-color: red;
+  .item {
+    width: 100%;
+    display: flex;
+
+    .left-col {
+      width: 10%;
+      padding: 1em 1em 0 1em;
+      text-align: center;
+      display: flex; /* Added for aligning content */
+      flex-direction: column; /* Aligns logo and line vertically */
+      justify-content: center; /* Ensures vertical alignment */
+
+      .logo {
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+
+      .linker {
+        position: relative;
+        flex-grow: 1; /* Makes the linker grow to fill the vertical space */
+        display: flex;
+        justify-content: center; /* Horizontally centre the line */
+
+        .line {
+          width: 2px; /* Thickness of the line */
+          margin: 40%;
+          height: 80%; /* Full height of the container */
+          background-color: $font-light-color; /* Colour of the line */
+        }
+      }
+    }
+
+    .right-col {
+      width: 77%;
+      padding: 1em;
+      display: flex; /* Added for aligning content */
+      flex-direction: column;
+      justify-content: center; /* Ensures vertical alignment */
+
+      .title {
+        color: $font-light-color;
+        font-weight: 600;
+        padding-bottom: 0.5em;
+        font-size: 1.2em;
+        width: 100%;
+      }
+      .what {
+        color: $font-light-color;
+        padding-bottom: 0.5em;
+        font-size: 1em;
+        width: 100%;
+      }
+      .grade {
+        color: $font-light-color;
+        padding-bottom: 0.5em;
+      }
+      .where-when {
+        display: flex;
+        flex-direction: row;
+        .where {
+          color: $font-light-color;
+          font-size: 1em;
+          font-style: italic;
+          color: #5d5d5d;
+          padding-right: 1em;
+        }
+        .when {
+          color: $font-light-color;
+          font-size: 1em;
+          color: #5d5d5d;
+        }
+      }
+      .details {
+        font-size: 1em;
+      }
+
+      li {
+        padding-bottom: 0.5em;
+      }
+    }
   }
 }
 
-.timeline {
-  background-color: aqua;
-  text-align: left;
+.list {
+  width: 100%;
+  border-style: 1px;
+  margin-bottom: 1em;
 
-  .timeline-row {
-    border-style: dashed;
-    border-color: $build-current;
-    border-width: 2pt;
+  .el {
+    border-bottom: 1.5px solid $font-light-color;
+    padding: 1em;
+    position: relative;
+    transition: transform 0.3s steps(5, end); /* Rigid/step-like animation */
+
+    .el-img {
+      text-align: center;
+      padding: 1em;
+
+      img {
+        max-width: 100px;
+      }
+    }
   }
-
-  h3 {
-    font-size: 2em;
-  }
-
-  h4 {
-    font-size: 1.5em;
-  }
-
-  h5 {
-    font-size: 1em;
-  }
-
-  p {
-    font-size: 1em;
-  }
-
 }
 
-// #history {
-//     padding: 20px;
-  
-//     .items-container {
-//       max-width: 900px;
-//       margin: 0 auto;
-//       h2 {
-//         font-size: 2em;
-//         text-align: left;
-//         margin-bottom: 1em;
-//         color: #000000;
-//       }
-//     }
-  
-//     .vertical-timeline-element-title {
-//       font-weight: bold;
-//       font-size: 1.25rem;
-//     }
-  
-//     .vertical-timeline-element-subtitle {
-//       font-style: italic;
-//       font-size: 1rem;
-//     }
-// }  
-
-
-// .custom-timeline {
-//     background-color: #f5f5f5;
-//     padding: 20px;
-//     border-radius: 8px;
-// }
-
-// .custom-timeline .vertical-timeline-line {
-//     background-color: #ca6f00;
-// }
-
-// .vertical-timeline span {
-//     color: white;
-//     font-family: 'Courier Prime', monospace;
-// }
-
-// .vertical-timeline p {
-//     color: rgb(39, 40, 34);
-// }
-
-// .vertical-timeline-element p {
-//     color: rgb(39, 40, 34);
-// }
-
-// .vertical-timeline-element h3 {
-//     color: rgb(39, 40, 34);
-// }
-
-// .vertical-timeline-element h4 {
-//     color: rgb(39, 40, 34);
-// }
-
-// .vertical-timeline-element span {
-//     color: rgb(39, 40, 34);
-// }
-
-// .vertical-timeline-element .vertical-timeline-element-date {
-//     color: white;
-// }
-
-// .svg-inline--fa {
-//     color: white;
-// }
-
-// @media screen and (max-width: 1170px) {
-//     .vertical-timeline-element .vertical-timeline-element-date {
-//         color: rgb(39, 40, 34);
-//     }
-// }
-
+#recognitions {
+  li {
+    padding: 0 0 0.2em 0;
+  }
+}

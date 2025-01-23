@@ -5,8 +5,8 @@ import React, { useState, useEffect } from "react";
 import {
   Main,
   History,
+  Research,
   // Navigation, // Navigation component (currently commented out)
-  // Timeline,   // Timeline component (currently commented out)
   // Expertise,  // Expertise component (currently commented out)
   // Project,    // Project component (currently commented out)
   // Contact,    // Contact component (currently commented out)
@@ -43,9 +43,9 @@ function App() {
       {/* <FadeIn transitionDuration={2300}> */}
           <Main/>
           <History/>
+          <Research/>
       {/*     <Navigation parentToChild={{mode}} modeChange={handleModeChange}/> 
           // Navigation component, receiving the current mode and toggle function as props
-          <Timeline/> // Timeline component (could show a chronological timeline)
           <Expertise/> // Expertise component (might display skills or expertise areas)
           <Project/> // Project component (could showcase projects)
           <Contact/> // Contact component (likely contains contact information or a form)

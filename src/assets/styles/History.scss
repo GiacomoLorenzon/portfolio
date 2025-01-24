@@ -1,0 +1,131 @@
+@import 'constants.scss';
+
+.history {
+  width: $body-width;
+  margin-left: $margin-left-body;
+  margin-right: $margin-right-body;
+  padding: 0;
+
+  h1 {
+    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    background-clip: text; /* For Firefox */
+    color: transparent; /* Make text transparent so the gradient shows */
+    display: inline-block; /* Shrink-wrap the element around the text */
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .item {
+    width: 100%;
+    display: flex;
+
+    .left-col {
+      width: 10%;
+      padding: 1em 1em 0 1em;
+      text-align: center;
+      display: flex; /* Added for aligning content */
+      flex-direction: column; /* Aligns logo and line vertically */
+      justify-content: center; /* Ensures vertical alignment */
+
+      .logo {
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+
+      .linker {
+        position: relative;
+        flex-grow: 1; /* Makes the linker grow to fill the vertical space */
+        display: flex;
+        justify-content: center; /* Horizontally centre the line */
+
+        .line {
+          width: 2px; /* Thickness of the line */
+          margin: 40%;
+          height: 80%; /* Full height of the container */
+          background-color: $font-light-color; /* Colour of the line */
+        }
+      }
+    }
+
+    .right-col {
+      width: 77%;
+      padding: 1em;
+      display: flex; /* Added for aligning content */
+      flex-direction: column;
+      justify-content: center; /* Ensures vertical alignment */
+
+      .title {
+        color: $font-light-color;
+        font-weight: 600;
+        padding-bottom: 0.5em;
+        font-size: 1.2em;
+        width: 100%;
+      }
+      .what {
+        color: $font-light-color;
+        padding-bottom: 0.5em;
+        font-size: 1em;
+        width: 100%;
+      }
+      .grade {
+        color: $font-light-color;
+        padding-bottom: 0.5em;
+      }
+      .where-when {
+        display: flex;
+        flex-direction: row;
+        .where {
+          color: $font-light-color;
+          font-size: 1em;
+          font-style: italic;
+          color: #5d5d5d;
+          padding-right: 1em;
+        }
+        .when {
+          color: $font-light-color;
+          font-size: 1em;
+          color: #5d5d5d;
+        }
+      }
+      .details {
+        font-size: 1em;
+      }
+
+      li {
+        padding-bottom: 0.5em;
+      }
+    }
+  }
+}
+
+.list {
+  width: 100%;
+  border-style: 1px;
+  margin-bottom: 1em;
+
+  .el {
+    border-bottom: 1.5px solid $font-light-color;
+    padding: 1em;
+    position: relative;
+    transition: transform 0.3s steps(5, end); /* Rigid/step-like animation */
+
+    .el-img {
+      text-align: center;
+      padding: 1em;
+
+      img {
+        max-width: 100px;
+      }
+    }
+  }
+}
+
+#recognitions {
+  li {
+    padding: 0 0 0.2em 0;
+  }
+}

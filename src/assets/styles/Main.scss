@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// - container > index.scss
+//    |_ about-section
+//       |- image-wrapper
+//       |_ content
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// import variables
+@import 'constants.scss';
+
+.container {
+  margin-left: $margin-left-body;
+  margin-right: $margin-right-body;
+
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Align items vertically */
+  align-items: center; /* Centres items horizontally */
+  justify-content: center; /* Centres items vertically */
+  width: $body-width;
+
+  .scroll-button{
+    margin: 80px;
+    color: $font-dark-color;
+    background-color: $font-light-color;
+    text-transform: none; // Disables uppercase
+    border-top: 1px solid $light;
+
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(76, 76, 76)); /* Initial gradient background */
+    transition: background-image 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
+
+    .MuiButton-endIcon {
+      transform: translateX(0px) translateY(0px) scale(1); /* Resets endIcon position and size */
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                  color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth return animation */
+      color: inherit; /* Resets colour smoothly */
+    }
+  }
+            
+  .scroll-button:hover {
+    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient changes on hover */
+    transform: 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
+    
+    .MuiButton-endIcon {
+      transform: translateX(50px) translateY(20px) scale(1); /* Moves and enlarges the endIcon */
+      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                    color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation for transform and colour */
+      color: #000000; /* Changes the endIcon to black */
+    }
+  }
+} 
+
+
+.about-section {
+    // background-image: url("../images/bg-light.png");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-attachment: fixed;
+    // background-position: center;
+
+    display: flex; /* Enable Flexbox */
+    flex-direction: row; /* Ensure child elements are in a row */
+    justify-content: flex-start; /* Align children to the left horizontally */
+    align-items: center; /* Vertically centre the children */
+
+    width: 100%;
+
+    // avatar image 
+    .image-wrapper {
+        z-index: 2;
+        max-height: 170px;
+        margin: 1em;
+        img {
+            width: 170px;
+            max-width: 170px;
+            max-height: 170px;
+            border-radius: 50%;
+        }
+    }
+
+    // title, subtitle
+    .content {
+        text-align: left;
+        z-index: 2;
+        width: 100%;
+        padding: 1em;
+
+        .social_icons {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            color: white;
+            svg {
+                font-size: 1.2em;
+            }
+        }
+
+        .hrule {
+            border: none;
+            background-color: #000; /* Line color */
+            height: 2px; /* Thickness of the line */
+            margin: 1em 0;
+            width: 100%;
+            border-radius: 4px; /* Rounded edges */
+        }
+    }
+
+    h1 {
+        font-size: 2.3em;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+    p {
+        font-size: 1.5em;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+
+    .mobile_social_icons {
+        display: none;
+    }
+}

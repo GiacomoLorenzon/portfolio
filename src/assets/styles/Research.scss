@@ -1,0 +1,90 @@
+@import "constants.scss";
+
+.Research {
+  width: $body-width;
+  margin-left: $margin-left-body;
+  margin-right: $margin-right-body;
+  padding: 0;
+
+  h1 {
+    background-image: linear-gradient(80deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
+    -webkit-background-clip: text; /* For Chrome/Safari */
+    background-clip: text; /* For Firefox */
+    color: transparent; /* Make text transparent so the gradient shows */
+    display: inline-block; /* Shrink-wrap the element around the text */
+    padding: 0;
+    margin-top: 2em;
+  }
+
+  .list {
+    .list-item {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      padding: 0.5em 0;
+      cursor: pointer;
+      overflow: hidden;
+
+      .plus-icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transition:
+          transform 1s ease,
+          color 0.3s ease;
+      }
+
+      .text-box {
+        padding: 0.5em 0.5em 0.5em 1em;
+        flex: 1;
+
+        .title-text {
+          font-size: 1em;
+          font-weight: 700;
+        }
+
+        .body-text {
+          font-size: 1em;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          line-clamp: 2;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .divider {
+      margin: 0 auto;
+    }
+
+    .list-item:hover {
+      background-blend-mode: normal
+    }
+    .list-item:hover .plus-icon {
+      transform: rotate(360deg);
+      color: $link-hover-color;
+    }
+  }
+}
+
+.dialog-title {
+  font-size: 1em;
+  font-weight: 800;
+  padding: 1em 1em 0em 1em;
+  max-width: 100%;
+}
+.dialog-text {
+  font-size: 1em;
+  padding: 1em;
+  max-width: 100%;
+}
+video {
+  max-width: 100%;
+  height: 300px;
+  margin-top: -160px;
+}

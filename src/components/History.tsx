@@ -6,6 +6,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import PublicIcon from '@mui/icons-material/Public';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // impor css styling
 import '../assets/styles/History.scss'
@@ -102,6 +103,9 @@ function History() {
         <div className="left-col">
           <div className="logo">
             <img src={event.icon} alt="logo"/>
+            <div className="hover-arrow">
+              <KeyboardArrowRightIcon style={{ fontSize: '2em', color: '#1e1e1e'}} />
+            </div>
           </div>
           <div className="linker">
             <div className="line"></div>

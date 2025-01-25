@@ -4,14 +4,14 @@
 
 // import variables
 @import 'assets/styles/constants.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Source+Code+Pro:wght@400;500;700&display=swap');
 
 body {
   font-family: $font-primary,
     -apple-system,
     BlinkMacSystemFont,
-    "Georgia",
-    "Times New Roman",
-    serif;
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.1rem !important;
@@ -30,7 +30,7 @@ code {
 
 p, a, h1, h2, h3, h4, h5, label, button {
   color: $font-light-color;
-  font-family: $font-primary, serif;
+  font-family: $font-primary, sans-serif;
 }
 
 a {
@@ -43,4 +43,10 @@ a:hover {
     color .15s ease-in-out,
     background-color .15s ease-in-out,
     border-color .15s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  body{
+    font-size: 1rem !important;
+  }
 }

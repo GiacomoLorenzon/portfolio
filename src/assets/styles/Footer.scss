@@ -1,0 +1,36 @@
+@import "constants.scss";
+
+footer {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  width: $body-width;
+  margin-top: 100px;
+  margin-left: $margin-left-body;
+  margin-right: $margin-right-body;
+  border-top: 1pt dashed #1e1e1e;
+  bottom: 0;
+
+  svg {
+    width: 1.1em !important;
+    height: 1.1em !important;
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  a {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    width: $body-width-small;
+    margin-left: $margin-left-body-small;
+    margin-right: $margin-right-body-small;
+    font-size: 1.25em;
+  }
+}

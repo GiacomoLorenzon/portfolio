@@ -20,6 +20,34 @@ import imperatives from "../assets/images/imperatives.png";
 import brainum from "../assets/images/brainum.png";
 import lifex from "../assets/images/lifex.png";
 
+// boxes
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Masonry from '@mui/lab/Masonry';
+
+// exp
+import { Chip, Stack } from "@mui/material";
+import CodeIcon from "@mui/icons-material/Code";
+import StorageIcon from "@mui/icons-material/Storage";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import WebIcon from "@mui/icons-material/Web";
+import ScienceIcon from "@mui/icons-material/Science";
+import DataObjectIcon from "@mui/icons-material/DataObject";
+import SpeedIcon from '@mui/icons-material/Speed';
+
+const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(0.5),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
+
 const brain = require("../assets/images/q_volume_rainbow.mp4");
 
 interface ListItemData {
@@ -58,6 +86,44 @@ const data: ListItemData[] = [
     video: ""
   },
 ];
+
+const categories = [
+    {
+      title: "Programming Languages",
+      icon: <CodeIcon />,
+      skills: ["C", "C++ 17/20", "Bash", "MATLAB", "Python", "AMPL", "R", "TypeScript"],
+    },
+    {
+      title: "Data and Tools",
+      icon: <StorageIcon />,
+      skills: ["Docker", "SQL", "Git (CI/CD)", "Gephi", "Paraview", "OpenFoam"],
+    },
+    {
+      title: "Web and Markup",
+      icon: <WebIcon />,
+      skills: ["HTML5", "CSS3", "LaTeX", "SCSS", "React", "TypeScript"],
+    },
+    {
+      title: "Systems & Frameworks",
+      icon: <TerminalIcon />,
+      skills: ["UNIX", "Office"],
+    },
+    {
+      title: "Scientific Tools",
+      icon: <ScienceIcon />,
+      skills: ["Make", "MATLAB", "R", "Paraview", "Comsol", "freeFEM", "ansys", "openFOAM", "Basilisk"],
+    },
+    {
+      title: "Data Visualisation",
+      icon: <DataObjectIcon />,
+      skills: ["OpenFoam", "Gephi", "Paraview"],
+    },
+    {
+      title: "HPC",
+      icon: <SpeedIcon />,
+      skills: ["C++", "Bash", "Fortran", "OpenMP", "MPI"]
+    }
+  ];
 
 const Research: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<ListItemData | null>(null);
@@ -129,6 +195,47 @@ const Research: React.FC = () => {
           </Dialog>
         )}
       </>
+
+      <h1>Experience</h1>
+      <div className="experience">
+        <Masonry
+          columns={{ xs: 1, sm: 2, md: 3 }} // Responsive columns for different breakpoints
+          spacing={2}>
+          {categories.map((category, index) => (
+            <Stack
+              key={index}
+              spacing={2}
+              sx={{
+                padding: "1rem",
+                border: "1px solid #e0e0e0",
+                borderRadius: "8px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                backgroundColor: "#fafafa",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                {category.icon}
+                <h3 style={{ margin: 0, fontSize: "1.25rem" }}>{category.title}</h3>
+              </div>
+              <div>
+                {category.skills.map((skill, skillIndex) => (
+                  <Chip
+                    key={skillIndex}
+                    label={skill}
+                    variant="outlined"
+                    sx={{
+                      margin: "0.25rem",
+                      fontWeight: "bold",
+                      fontSize: "0.9rem",
+                      backgroundColor: "#ffffff",
+                    }}
+                  />
+                ))}
+              </div>
+            </Stack>
+          ))}
+        </Masonry>
+      </div>
     </div>
   );
 };

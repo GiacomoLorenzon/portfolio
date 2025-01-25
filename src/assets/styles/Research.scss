@@ -88,3 +88,45 @@ video {
   height: 300px;
   margin-top: -160px;
 }
+
+.experience {
+  width: 100%;
+}
+
+/* Hover effect for the entire category (Stack) */
+.experience .MuiStack-root:hover {
+  background-color: #f5f5f5; /* Slightly darker background */
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1); /* Enhance the shadow on hover */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for individual chips */
+.MuiChip-root:hover {
+  background-color: #f1f1f1; /* Lighter background for chips */
+  color: $link-hover-color; /* Change text colour to a blue shade */
+  cursor: pointer; /* Indicate that the chip is clickable */
+  transition: all 0.2s ease-in-out;
+}
+
+
+@media (max-width: 600px) {
+  .Research{
+    width: $body-width-small;
+    margin-left: $margin-left-body-small;
+    margin-right: $margin-right-body-small;
+
+    .list {
+      .list-item {
+        padding: 0.2em 0;
+      }
+    }
+  }
+
+  .dialog-title {
+    padding: 0.2em 0.2em 0.2em 0.2em;
+  }
+  .dialog-text {
+    padding: 0.2em;
+  }
+}

@@ -31,9 +31,22 @@
 
       .logo {
         img {
-          width: 100%;
+          width: 80%;
           border-radius: 100%;
+          transition: margin-right 0.2s ease-in-out;
+          opacity: 1;
         }
+      }
+
+      .hover-arrow {
+        position: relative;
+        z-index: 0;
+        top: -50%;
+        left: 0%;
+        opacity: 0;;
+        transition:
+          transform 0.3s ease,
+          opacity 0.2s ease;
       }
 
       .linker {
@@ -43,8 +56,8 @@
         justify-content: center; /* Horizontally centre the line */
 
         .line {
-          width: 2px; /* Thickness of the line */
-          margin: 40%;
+          width: 1.5px; /* Thickness of the line */
+          margin-top: 20%;
           height: 80%; /* Full height of the container */
           background-color: $font-light-color; /* Colour of the line */
         }
@@ -78,17 +91,15 @@
       .where-when {
         display: flex;
         flex-direction: row;
+        color: #5d5d5d;
+        color: $font-light-color;
+        font-size: 1em;
         .where {
-          color: $font-light-color;
-          font-size: 1em;
           font-style: italic;
-          color: #5d5d5d;
           padding-right: 1em;
         }
         .when {
-          color: $font-light-color;
-          font-size: 1em;
-          color: #5d5d5d;
+          font-style: normal;
         }
       }
       .details {
@@ -99,6 +110,14 @@
         padding-bottom: 0.5em;
       }
     }
+  }
+
+  .item:hover .left-col .logo img{
+    margin-right: 15%;
+  }
+  .item:hover .hover-arrow {
+    transform: translate(50%, 0%);
+    opacity: 1;
   }
 }
 
@@ -127,5 +146,35 @@
 #recognitions {
   li {
     padding: 0 0 0.2em 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .history {
+    width: $body-width-small;
+    margin-left: $margin-left-body-small;
+    margin-right: $margin-right-body-small;
+
+    .item {
+      .left-col {
+        min-width: 50px;
+        padding: 0.5em 1em 0em 0em;
+      }
+      .right-col {
+        padding: 0.5em 0 0.5em 0;
+        .where-when {
+          flex-direction: column;
+        }
+        li {
+          margin-left: -1em;
+        }
+      }
+    }
+  }
+
+  #recognitions {
+    li {
+      margin-left: -1em;
+    }
   }
 }

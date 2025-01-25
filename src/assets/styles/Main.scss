@@ -52,7 +52,6 @@
   }
 } 
 
-
 .about-section {
     // background-image: url("../images/bg-light.png");
     // background-repeat: no-repeat;
@@ -91,10 +90,6 @@
             display: flex;
             flex-direction: row;
             gap: 1em;
-            color: white;
-            svg {
-                font-size: 1.2em;
-            }
         }
 
         .hrule {
@@ -121,4 +116,79 @@
     .mobile_social_icons {
         display: none;
     }
+}
+
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  /* Adjust container */
+  .container {
+      margin-left: $margin-left-body-small;
+      margin-right: $margin-right-body-small;
+
+      width: $body-width-small; /* Ensure container spans full width on mobile */
+      padding: 0; /* Add some padding to the sides */
+      
+      .scroll-button {
+          margin-top: 33%;
+          margin-bottom: 10px;
+          padding: 10px 15px;
+          border-radius: 8px;
+          font-size: 1em;
+      }
+  }
+
+  /* About Section */
+  .about-section {
+      flex-direction: column; /* Stack content vertically */
+      align-items: center; /* Centre items */
+      text-align: center; /* Centre text */
+
+      .image-wrapper {
+          margin: 33px;
+          max-height: 140px; /* Reduce image size for mobile */
+          img {
+              width: 140px;
+              max-width: 140px;
+              max-height: 140px;
+              border-radius: 50%;
+          }
+      }
+
+      .content {
+          padding: 1em;
+          width: 100%;
+          text-align: center;
+          
+          h1 {
+              font-size: 2.1em; /* Adjust title font size */
+          }
+
+          p {
+              font-size: 1.4em; /* Adjust paragraph font size */
+          }
+
+          .social_icons {
+              justify-content: center; /* Centre social icons */
+              gap: 1em;
+              font-size: 1.4em;
+          }
+
+          .hrule {
+              margin: 1em 0 1em 0;
+          }
+      }
+
+      /* Show mobile-specific social icons */
+      .mobile_social_icons {
+          display: flex;
+          justify-content: center;
+          gap: 2em;
+      }
+
+      /* Hide default social icons */
+      .social_icons {
+          display: none;
+      }
+  }
 }

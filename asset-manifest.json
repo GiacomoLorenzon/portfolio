@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.a83f6fa2.css",
+    "main.js": "/portfolio/static/js/main.8a9e665c.js",
+    "static/js/488.9e51c7c4.chunk.js": "/portfolio/static/js/488.9e51c7c4.chunk.js",
+    "static/media/q_volume_rainbow.mp4": "/portfolio/static/media/q_volume_rainbow.b49173982dcb584c106c.mp4",
+    "static/media/avatar_circle.png": "/portfolio/static/media/avatar_circle.ae5f42033322f0b8c65d.png",
+    "static/media/brainum.png": "/portfolio/static/media/brainum.e51ba7f5c38d0644fa53.png",
+    "static/media/lifex.png": "/portfolio/static/media/lifex.eb14f2989984baae4370.png",
+    "static/media/imperatives.png": "/portfolio/static/media/imperatives.5220d33d37606869a752.png",
+    "static/media/pst.png": "/portfolio/static/media/pst.7156fc09068beda2711b.png",
+    "static/media/avis.png": "/portfolio/static/media/avis.a856c556c013ed37fbee.png",
+    "static/media/rd.png": "/portfolio/static/media/rd.1ddc81f3fc14cb3658b4.png",
+    "static/media/logo_lvt.png": "/portfolio/static/media/logo_lvt.6d6e366fc3646ddad180.png",
+    "static/media/logo_polimi.webp": "/portfolio/static/media/logo_polimi.73468867df6cb89ca4b0.webp",
+    "static/media/logo_sorbonne.svg": "/portfolio/static/media/logo_sorbonne.723c4fb628ede0977998c8ed720d0d45.svg",
+    "index.html": "/portfolio/index.html",
+    "main.a83f6fa2.css.map": "/portfolio/static/css/main.a83f6fa2.css.map",
+    "main.8a9e665c.js.map": "/portfolio/static/js/main.8a9e665c.js.map",
+    "488.9e51c7c4.chunk.js.map": "/portfolio/static/js/488.9e51c7c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a83f6fa2.css",
+    "static/js/main.8a9e665c.js"
+  ]
+}

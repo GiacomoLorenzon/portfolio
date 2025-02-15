@@ -17,15 +17,18 @@ import '../assets/styles/Main.scss';
 
 function Main() {
 
-  const [height, setHeight] = useState(window.innerHeight);
-
+  const [height] = useState(window.innerHeight);
+  const adjustedHeight = height - 26; // Subtract 26px from the height
+  
   const scrollToNextSection = () => {
     // Scroll to the next section (Timeline)
-    window.scrollTo({ top: height, left: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.scrollTo({ top: height, left: 0, behavior: 'smooth' });
+    }, 700); 
   };
 
   return (
-    <div className="container" style={{ height: `${height}px` }}>
+    <div className="container" style={{ height: `${adjustedHeight}px` }}>
       <div className="about-section">
         <div className="image-wrapper">
           <img src={avatar} alt="Avatar" />
@@ -52,7 +55,6 @@ function Main() {
           <div className="mobile_social_icons">
             {/* Mobile version of the GitHub icon */}
             <a href="https://github.com/GiacomoLorenzon" target="_blank" rel="noreferrer">
-            
             </a>
           </div>
         </div>

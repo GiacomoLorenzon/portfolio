@@ -94,7 +94,7 @@ function History() {
     <p>
       I graduated with honours in Mathematical Engineering from Politecnico di Milano, under the supervision of Prof.ssa Paola Antonietti. My work blends rigorous theoretical studies with a focus on practical, high-impact applications in mathematical modelling and computational science. In my free time, I enjoy playing the piano and exploring the mountains, where I find balance. I played basketball for several years leading my team through several tournaments.
     </p>
-    <p><PublicIcon style={{ fontSize: '1em', color: '#1e1e1e', margin: '0 0.3em 0 0' }}/><b>Languages</b>: Italian - mother tongue, English, French - fluent.</p>
+    <p><PublicIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }}/><b>Languages</b>: Italian - mother tongue, English, French - fluent.</p>
 
 
     <h1>Education</h1>
@@ -103,9 +103,6 @@ function History() {
         <div className="left-col">
           <div className="logo">
             <img src={event.icon} alt="logo"/>
-            <div className="hover-arrow">
-              <KeyboardArrowRightIcon style={{ fontSize: '2em', color: '#1e1e1e'}} />
-            </div>
           </div>
           <div className="linker">
             <div className="line"></div>
@@ -113,20 +110,20 @@ function History() {
         </div>
         <div className="right-col">
           <div className="title">
-            <AccountBalanceIcon style={{ fontSize: '1em', color: '#1e1e1e', margin: '0 0.3em 0 0' }} />
+            <AccountBalanceIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }} />
             {event.title}
           </div>
           <div className="what">
-            <SchoolRoundedIcon style={{ fontSize: '1em', color: '#1e1e1e', margin: '0 0.3em 0 0' }} />
+            <SchoolRoundedIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }} />
             {event.what}</div>
           <div className="grade">{event.grade}</div>
           <div className="where-when">
             <div className="where">
-              <PlaceIcon style={{ fontSize: '1em', color: '#5d5d5d', margin: '0 0.3em 0 0' }} />
+              <PlaceIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }} />
               {event.where}
             </div>
             <div className="when">
-              <CalendarMonthIcon style={{ fontSize: '1em', color: '#5d5d5d', margin: '0 0.3em 0 0' }} />
+              <CalendarMonthIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }} />
               {event.when}
             </div>
           </div>

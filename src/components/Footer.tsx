@@ -2,7 +2,6 @@ import React from "react";
 import '../assets/styles/Footer.scss'
 
 // import from MUI
-import ButtonIcon from '@mui/icons-material/DownhillSkiing';
 import PhoneIcon from '@mui/icons-material/Phone';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import GitHubIcon from '@mui/icons-material/GitHub';

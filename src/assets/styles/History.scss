@@ -7,7 +7,6 @@
   padding: 0;
 
   h1 {
-    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
     -webkit-background-clip: text; /* For Chrome/Safari */
     background-clip: text; /* For Firefox */
     color: transparent; /* Make text transparent so the gradient shows */
@@ -38,17 +37,6 @@
         }
       }
 
-      .hover-arrow {
-        position: relative;
-        z-index: 0;
-        top: -50%;
-        left: 0%;
-        opacity: 0;;
-        transition:
-          transform 0.3s ease,
-          opacity 0.2s ease;
-      }
-
       .linker {
         position: relative;
         flex-grow: 1; /* Makes the linker grow to fill the vertical space */
@@ -59,7 +47,6 @@
           width: 1.5px; /* Thickness of the line */
           margin-top: 20%;
           height: 80%; /* Full height of the container */
-          background-color: $font-light-color; /* Colour of the line */
         }
       }
     }
@@ -72,27 +59,22 @@
       justify-content: center; /* Ensures vertical alignment */
 
       .title {
-        color: $font-light-color;
         font-weight: 600;
         padding-bottom: 0.5em;
         font-size: 1.2em;
         width: 100%;
       }
       .what {
-        color: $font-light-color;
         padding-bottom: 0.5em;
         font-size: 1em;
         width: 100%;
       }
       .grade {
-        color: $font-light-color;
         padding-bottom: 0.5em;
       }
       .where-when {
         display: flex;
         flex-direction: row;
-        color: #5d5d5d;
-        color: $font-light-color;
         font-size: 1em;
         .where {
           font-style: italic;
@@ -127,7 +109,6 @@
   margin-bottom: 1em;
 
   .el {
-    border-bottom: 1.5px solid $font-light-color;
     padding: 1em;
     position: relative;
     transition: transform 0.3s steps(5, end); /* Rigid/step-like animation */
@@ -137,7 +118,7 @@
       padding: 1em;
 
       img {
-        max-width: 100px;
+        max-width: 80px;
       }
     }
   }
@@ -150,23 +131,54 @@
 }
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: x-large;
+  }
+
+  .el {
+    ul {
+      padding-left: 1.5em;
+    }
+  }
+
   .history {
     width: $body-width-small;
     margin-left: $margin-left-body-small;
     margin-right: $margin-right-body-small;
 
+    h1 {
+      margin-bottom: 0;
+    }
+
     .item {
       .left-col {
-        min-width: 50px;
-        padding: 0.5em 1em 0em 0em;
+        min-width: 45px;
+        padding: 0.5em 0.5em 0em 0em;
+        .logo {
+          max-height: 45px;
+          img {
+            width: 95%;
+            border-radius: 100%;
+          }
+        }
+        .linker {
+          .line {
+            width: 1px; /* Thickness of the line */
+            height: 98.5%; /* Full height of the container */
+          }
+        }
       }
       .right-col {
         padding: 0.5em 0 0.5em 0;
+        .title {
+          font-size: medium;
+          font-weight: 700;
+        }
         .where-when {
           flex-direction: column;
         }
         li {
-          margin-left: -1em;
+          margin-left: -1.5em;
         }
       }
     }

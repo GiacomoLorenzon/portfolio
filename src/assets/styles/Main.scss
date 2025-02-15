@@ -22,14 +22,11 @@
 
   .scroll-button{
     margin: 80px;
-    color: $font-dark-color;
-    background-color: $font-light-color;
     text-transform: none; // Disables uppercase
     border-top: 1px solid $light;
 
-    background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(76, 76, 76)); /* Initial gradient background */
-    transition: background-image 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
+    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(76, 76, 76)); /* Initial gradient background */
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
 
     .MuiButton-endIcon {
       transform: translateX(0px) translateY(0px) scale(1); /* Resets endIcon position and size */
@@ -40,25 +37,18 @@
   }
             
   .scroll-button:hover {
-    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient changes on hover */
+    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(97, 97, 97));/* Gradient changes on hover */
     transform: 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
     
     .MuiButton-endIcon {
       transform: translateX(50px) translateY(20px) scale(1); /* Moves and enlarges the endIcon */
       transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
                     color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation for transform and colour */
-      color: #000000; /* Changes the endIcon to black */
     }
   }
 } 
 
 .about-section {
-    // background-image: url("../images/bg-light.png");
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // background-attachment: fixed;
-    // background-position: center;
-
     display: flex; /* Enable Flexbox */
     flex-direction: row; /* Ensure child elements are in a row */
     justify-content: flex-start; /* Align children to the left horizontally */
@@ -94,7 +84,6 @@
 
         .hrule {
             border: none;
-            background-color: #000; /* Line color */
             height: 2px; /* Thickness of the line */
             margin: 1em 0;
             width: 100%;
@@ -130,10 +119,10 @@
       padding: 0; /* Add some padding to the sides */
       
       .scroll-button {
-          margin-top: 33%;
-          margin-bottom: 10px;
-          padding: 10px 15px;
-          border-radius: 8px;
+          margin-top: 17%;
+          margin-bottom: 0px;
+          padding: 10px 25px;
+          border-radius: 6px;
           font-size: 1em;
       }
   }
@@ -141,11 +130,9 @@
   /* About Section */
   .about-section {
       flex-direction: column; /* Stack content vertically */
-      align-items: center; /* Centre items */
-      text-align: center; /* Centre text */
 
       .image-wrapper {
-          margin: 33px;
+          margin: 0px 33px 13px 33px;
           max-height: 140px; /* Reduce image size for mobile */
           img {
               width: 140px;

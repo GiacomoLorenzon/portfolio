@@ -21,8 +21,6 @@ import brainum from "../assets/images/brainum.png";
 import lifex from "../assets/images/lifex.png";
 
 // boxes
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import Masonry from '@mui/lab/Masonry';
 
 // exp
@@ -34,19 +32,6 @@ import WebIcon from "@mui/icons-material/Web";
 import ScienceIcon from "@mui/icons-material/Science";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import SpeedIcon from '@mui/icons-material/Speed';
-
-const heights = [150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80];
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(0.5),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
 
 const brain = require("../assets/images/q_volume_rainbow.mp4");
 
@@ -101,7 +86,7 @@ const categories = [
     {
       title: "Web and Markup",
       icon: <WebIcon />,
-      skills: ["HTML5", "CSS3", "LaTeX", "SCSS", "React", "TypeScript"],
+      skills: ["HTML5", "CSS3", "LaTeX", "SCSS", "React", "TypeScript", "Tailwind CSS"],
     },
     {
       title: "Systems & Frameworks",
@@ -127,6 +112,9 @@ const categories = [
 
 const Research: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<ListItemData | null>(null);
+
+  const [width] = useState(window.innerWidth);
+  const adjustedWidth = width - 5; // Subtract 26px from the height
 
   const handleItemClick = (item: ListItemData) => {
     setSelectedItem(item);
@@ -166,8 +154,8 @@ const Research: React.FC = () => {
         {/* Dialog Section */}
         {selectedItem && (
           <Dialog open={!!selectedItem} onClose={handleClose} maxWidth="sm" fullWidth>
-            <DialogTitle><div className="dialog-title">{selectedItem.title}</div></DialogTitle>
-            <DialogContent>
+            <DialogTitle sx={{ '@media (max-width: 600px)': { padding: '0.8em'}}}><div className="dialog-title">{selectedItem.title}</div></DialogTitle>
+            <DialogContent sx={{'@media (max-width: 600px)': { padding: '1em'}}}>
               {/* Full Image */}
               <Box
                 sx={{
@@ -207,10 +195,8 @@ const Research: React.FC = () => {
               spacing={2}
               sx={{
                 padding: "1rem",
-                border: "1px solid #e0e0e0",
                 borderRadius: "8px",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                backgroundColor: "#fafafa",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
@@ -227,8 +213,8 @@ const Research: React.FC = () => {
                       margin: "0.25rem",
                       fontWeight: "bold",
                       fontSize: "0.9rem",
-                      backgroundColor: "#ffffff",
                     }}
+                    className="chip"
                   />
                 ))}
               </div>

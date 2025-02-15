@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.d10057ea.css",
-    "main.js": "/portfolio/static/js/main.c26bf02b.js",
+    "main.css": "/portfolio/static/css/main.11449146.css",
+    "main.js": "/portfolio/static/js/main.55f88888.js",
     "static/js/488.9e51c7c4.chunk.js": "/portfolio/static/js/488.9e51c7c4.chunk.js",
     "static/media/q_volume_rainbow.mp4": "/portfolio/static/media/q_volume_rainbow.b49173982dcb584c106c.mp4",
     "static/media/avatar_circle.png": "/portfolio/static/media/avatar_circle.ae5f42033322f0b8c65d.png",
@@ -15,12 +15,12 @@
     "static/media/logo_polimi.webp": "/portfolio/static/media/logo_polimi.73468867df6cb89ca4b0.webp",
     "static/media/logo_sorbonne.svg": "/portfolio/static/media/logo_sorbonne.723c4fb628ede0977998c8ed720d0d45.svg",
     "index.html": "/portfolio/index.html",
-    "main.d10057ea.css.map": "/portfolio/static/css/main.d10057ea.css.map",
-    "main.c26bf02b.js.map": "/portfolio/static/js/main.c26bf02b.js.map",
+    "main.11449146.css.map": "/portfolio/static/css/main.11449146.css.map",
+    "main.55f88888.js.map": "/portfolio/static/js/main.55f88888.js.map",
     "488.9e51c7c4.chunk.js.map": "/portfolio/static/js/488.9e51c7c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d10057ea.css",
-    "static/js/main.c26bf02b.js"
+    "static/css/main.11449146.css",
+    "static/js/main.55f88888.js"
   ]
 }

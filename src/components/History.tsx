@@ -26,6 +26,22 @@ import avis from '../assets/images/avis.png'
 const history_events = [
   {
     title: 'Polytechnic University of Milan',
+    what: 'Philosophiæ doctor',
+    where: 'Milan, Italy',
+    when: 'Spring 2025 - Spring 2028',
+    grade: '',
+    icon: poli,
+    details: (
+      <div>
+        <ul>
+          <li><b>Supervisor</b>: Prof. Francesco Regazzoni.</li>
+          <li><b>Topic</b>: <i>Geometric and Probabilistic Methods for Uncertainty Quantification in Machine Learning</i>.</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    title: 'Polytechnic University of Milan',
     what: 'Master of Science in Mathematical Engineering: Computational Science and Computational Learning',
     where: 'Milan, Italy',
     when: 'Fall 2021 - Spring 2024',
@@ -35,9 +51,9 @@ const history_events = [
       <div>
         <ul>
           <li><b>Master thesis</b>: <i>Modelling neurodegenerative disorders: a discontinuous Galerkin approach for the heterodimer model of prions dynamic</i>, under the supervision of Prof.ssa P. Antonietti.</li>
-          <li><b>Relevant Coursework</b>: Algorithms and Parallel Computing, Advanced Programming for Scientific Computing, Advanced Partial Differential Equations, Real and Functional Analysis, Numerical Analysis forPartial Differential Equations, Computational Fluid Dynamics, Graph Optimisation, Stochastic Dynamical Models.</li>
-          <li><b>Activities</b>: AIM member, Mentorship program, PoliMi sailing team member.</li>
-          <li><b>Recognitions</b>: Two-times recipient of a merit-based scholarships.</li>
+          <li><b>Relevant Coursework</b>: Algorithms and Parallel Computing, Advanced Programming for Scientific Computing, Advanced Partial Differential Equations, Real and Functional Analysis, Numerical Analysis for Partial Differential Equations, Computational Fluid Dynamics, Graph Optimisation, Stochastic Dynamical Models.</li>
+          <li><b>Activities</b>: AIM member, mentorship program, PoliMi sailing team member.</li>
+          <li><b>Recognitions</b>: Two-time recipient of merit-based scholarships.</li>
         </ul>
       </div>
     ),
@@ -66,7 +82,7 @@ const history_events = [
       <ul>
         <li><b>Thesis</b>: <i>Intermittent collective dynamics emerge from conflicting imperatives</i>.</li>
         <li><b>Relevant Coursework</b>: Mathematical Analysis, Partial Differential Equations: Analytical and Numerical Methods, Models and Methods for Statistical Inference, Probability, Operations Research, Linear Algebra, Business Economics and Organization, Automatic Control.</li>
-        <li><b>Recognitions</b>: Attendance at the annual program <i>for the excellence appreciation</i>, MIUR scholarship 2017-2018. Three-times recipient of a merit-based scholarships.</li>
+        <li><b>Recognitions</b>: Attendance at the annual program <i>for the excellence appreciation</i>; MIUR scholarship 2017-2018; three-time recipient of merit-based scholarships.</li>
       </ul>
     ),
   },
@@ -92,14 +108,14 @@ function History() {
   <div className="history">
     <h1>About</h1>
     <p>
-      I graduated with honours in Mathematical Engineering from Politecnico di Milano, under the supervision of Prof.ssa Paola Antonietti. My work blends rigorous theoretical studies with a focus on practical, high-impact applications in mathematical modelling and computational science. In my free time, I enjoy playing the piano and exploring the mountains, where I find balance. I played basketball for several years leading my team through several tournaments.
+      I graduated with honours in Mathematical Engineering from Politecnico di Milano under Prof.ssa Paola Antonietti. My work blends rigorous theory with practical, high-impact applications in mathematical modelling and computational science. I recharge at the piano or in the mountains and spent years captaining basketball teams through tournaments—experiences that keep me grounded, collaborative, and resilient.
     </p>
-    <p><PublicIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }}/><b>Languages</b>: Italian - mother tongue, English, French - fluent.</p>
+    <p><PublicIcon style={{ fontSize: '1em', margin: '0 0.3em 0 0' }}/><b>Languages</b>: Italian (native), English and French (fluent).</p>
 
 
     <h1>Education</h1>
     {history_events.map((event, index) => (
-      <div className="item">
+      <div className="item" key={`${event.title}-${index}`}>
         <div className="left-col">
           <div className="logo">
             <img src={event.icon} alt="logo"/>
@@ -136,7 +152,7 @@ function History() {
     <div className="list">
       <div className="el">
         <div className="el-img"><img src={aim} alt="aim"/></div>
-        <b>AIM Associazione Ingegneri Matematici</b> (Association of Mathematical Engineers): active member and mentor of a first-year student.
+        <b>AIM Associazione Ingegneri Matematici</b> (Association of Mathematical Engineers): active member and mentor to first-year students.
       </div>
       <div className="el">
         <div className="el-img"><img src={pst} alt="pst"/></div>

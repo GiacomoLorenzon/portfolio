@@ -4,31 +4,22 @@ import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
 import { Main, History, Research, Footer } from "./components";
 import './index.scss';
 import './App.scss';
-import { red } from "@mui/material/colors";
 
 function App() {
-  // Define state for the theme mode (light or dark)
-  const [mode, setMode] = useState<string>("light");
+  const [mode, setMode] = useState<"light" | "dark">("light");
 
-  // Load the mode from localStorage if available
   useEffect(() => {
-    const savedMode = localStorage.getItem("theme");
-    if (savedMode) {
-      setMode(savedMode);
-    }
+    const savedMode = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (savedMode) setMode(savedMode);
   }, []);
 
-  // Function to toggle the mode between 'light' and 'dark'
   const handleModeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newMode = event.target.checked ? "dark" : "light";
     setMode(newMode);
-    // Save the selected mode to localStorage
     localStorage.setItem("theme", newMode);
   };
 
-  const IOSSwitch = styled((props) => (
-    <Switch disableRipple {...props} checked={mode === "dark"} onChange={handleModeChange} />
-  ))(({ theme }) => ({
+  const IOSSwitch = styled(Switch)(({ theme }) => ({
     width: 42,
     height: 26,
     padding: 0,
@@ -57,10 +48,10 @@ function App() {
   }));
 
   return (
-    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`main-container ${mode === "dark" ? "dark-mode" : "light-mode"}`}>
       <div style={{ display: "flex", width: "100%", justifyContent: "flex-end" }}>
         <FormControlLabel
-          control={<IOSSwitch sx={{ m: 2 }} />}
+          control={<IOSSwitch sx={{ m: 2 }} checked={mode === "dark"} onChange={handleModeChange} />}
           label={<PanoramaFishEyeIcon />}
           sx={{ "& .MuiFormControlLabel-label": { padding: "6px 0 0 0" } }}
         />

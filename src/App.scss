@@ -9,6 +9,17 @@
 // import variables
 @import './assets/styles/constants';
 
+.main-container {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.main-container {
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+
 .main-container{
     position: relative;
     display: flex; /* Enable Flexbox */

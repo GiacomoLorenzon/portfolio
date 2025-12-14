@@ -187,7 +187,7 @@ const Research: React.FC = () => {
       <h1>Experience</h1>
       <div className="experience">
         <Masonry
-          columns={{ xs: 1, sm: 2, md: 3 }} // Responsive columns for different breakpoints
+          columns={{ xs: 1, sm: 1, md: 2 }} // Responsive columns for different breakpoints
           spacing={2}>
           {categories.map((category, index) => (
             <Stack
@@ -197,6 +197,7 @@ const Research: React.FC = () => {
                 padding: "1rem",
                 borderRadius: "8px",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                border: "1px solid #f4f4f4"
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>

@@ -1,217 +1,35 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// main-container
-// |- light-mode
-// |_ dark-mode
-//
-////////////////////////////////////////////////////////////////////////////////
-
-// import variables
-@import './assets/styles/constants';
-
+@import "./assets/styles/constants";
+:root { scroll-behavior: smooth; }
 .main-container {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  --background: #{$background-light-color}; --text: #{$font-light-color}; --muted: #{$font-light-color-2}; --detail-label: #3f3f3f; --keywords: #858585; --border: rgba(30,30,30,.28); --glass: rgba(255,255,255,.38); --glass-border: rgba(255,255,255,.72); --glass-shadow: rgba(31,38,45,.12); --accent: #{$link-hover-color};
+  --font-section: 2rem; --font-subheading: 1.05rem; --font-body: 1rem; --font-small: .88rem;
+  --section-space: 4.75rem; --content-gap: 1rem; --row-space: 1.2rem;
+  min-height: 100vh; position: relative; display: flex; flex-direction: column; align-items: flex-start; padding: 1em;
+  background-color: var(--background); color: var(--text); overflow-wrap: break-word; transition: background-color .5s ease, color .5s ease;
 }
-
-.main-container {
-  hyphens: auto;
-  overflow-wrap: break-word;
-  word-break: normal;
+.main-container.dark-mode { --background: #{$background-dark-color}; --text: #{$font-dark-color}; --muted: #{$font-dark-color-2}; --detail-label: #c7c7c7; --keywords: #c8c8c8; --border: rgba(236,234,230,.35); --glass: rgba(255,255,255,.07); --glass-border: rgba(255,255,255,.15); --glass-shadow: rgba(0,0,0,.3); }
+.main-container p, .main-container a, .main-container h2, .main-container h3, .main-container label { color: var(--text); }
+.main-container a:hover, .main-container a:focus-visible { color: var(--accent); }
+.theme-control { display: flex; width: 100%; justify-content: flex-end; }
+.theme-control .MuiFormControlLabel-root { margin: 16px; gap: .75rem; }
+.theme-control .MuiFormControlLabel-label { padding-top: 6px; color: var(--text); }
+main { width: 100%; }
+.content-section, footer { width: $body-width; margin-left: $margin-left-body; margin-right: $margin-right-body; }
+.content-section { padding: var(--section-space) 0 0; font-size: var(--font-body); }
+.content-section h2 {
+  display: inline-block; margin: 0 0 1.25rem; padding: 0; font-size: var(--font-section); line-height: 1.2; color: transparent;
+  background-image: linear-gradient(30deg, var(--text), var(--muted)); background-clip: text; -webkit-background-clip: text;
 }
-
-
-.main-container{
-    position: relative;
-    display: flex; /* Enable Flexbox */
-    flex-direction: column; /* Align children in a row */
-    justify-content: flex-start; /* Align children to the left horizontally */
-    align-items: flex-start; /* Align children to the top vertically */
-    padding: 1em;
+.section-kicker { display: none; }
+@media (max-width: 1000px) and (min-width: 601px) {
+  .content-section, footer { width: 72%; margin-left: 14%; margin-right: 14%; }
+  .hero { width: 72%; margin-left: 14%; margin-right: 14%; }
 }
-
-.dark-mode {
-    background-color: $background-dark-color; /* Light background colour */
-    color: $font-dark-color;  /* Light text */
-    p, a, h2, h3, h4, h5, label {
-        color: $font-dark-color;
-    }
-    .hrule {
-        background-color: $font-dark-color; /* Line color */
-    }
-    footer {
-        border-top: 1.5pt dashed $font-dark-color;
-    }
+@media (max-width: 600px) {
+  .content-section, footer { width: $body-width-small; margin-left: $margin-left-body-small; margin-right: $margin-right-body-small; }
+  .main-container { --font-section: 1.65rem; --section-space: 3.75rem; --row-space: 1rem; }
 }
-
-.light-mode {
-    background-color: $background-light-color; /* Light background colour */   
-    color: $font-light-color;  /* Dark text */
-    p, a, h2, h3, h4, h5, label {
-        color: $font-light-color;
-    }
-    .hrule {
-        background-color: $font-light-color; /* Line color */
-    }
-    .scroll-button:hover {
-        .MuiButton-endIcon {
-            color: $font-light-color;
-        }
-    }
-    footer {
-        border-top: 1.5pt dashed $font-light-color;
-    }
-}
-
-.light-mode .MuiFormControlLabel-label {
-    color: $font-light-color;
-}
-
-.dark-mode .MuiFormControlLabel-label {
-    color: $font-dark-color;
-}
-
-.light-mode .history {
-  h1 {
-    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
-  }
-  .item {
-    .left-col {
-      .hover-arrow {
-        color: $font-light-color;
-      }
-      .linker {
-        .line {
-          background-color: $font-light-color; /* Colour of the line */
-        }
-      }
-    }
-    .right-col {
-      .title {
-        color: $font-light-color;
-      }
-      .what {
-        color: $font-light-color;
-      }
-      .grade {
-        color: $font-light-color;
-      }
-      .where-when {
-        color: $font-light-color-2;
-      }
-    }
-  }
-  .list {
-    .el {
-      border-bottom: 1px solid $font-light-color;
-    }
-    }
-}
-
-.dark-mode .history {
-    h1 {
-      background-image: linear-gradient(30deg, rgb(255, 255, 255), rgb(95, 95, 95)); /* Gradient applied here */
-    }
-    .item {
-      .left-col {
-        .hover-arrow {
-          color: $font-dark-color;
-        }
-        .linker {
-          .line {
-            background-color: $font-dark-color; /* Colour of the line */
-          }
-        }
-      }
-      .right-col {
-        .title {
-          color: $font-dark-color;
-        }
-        .what {
-          color: $font-dark-color;
-        }
-        .grade {
-          color: $font-dark-color;
-        }
-        .where-when {
-          color: $font-dark-color-2;
-        }
-      }
-    }
-  }
-  .list {
-    .el {
-      border-bottom: 1px solid $font-dark-color;
-    }
-}
-
-.dark-mode .Research{
-    h1 {
-        background-image: linear-gradient(30deg, rgb(255, 255, 255), rgb(95, 95, 95)); /* Gradient applied here */
-    }
-    .experience .MuiStack-root:hover {
-        background-color: $background-dark-color; /* Slightly darker background */
-    }
-    .MuiChip-root {
-        color: $font-dark-color; /* Slightly darker background */
-    }
-    .MuiChip-root:hover {
-        background-color: $background-dark-color; /* Lighter background for chips */
-        color: $link-hover-color; /* Change text colour to a blue shade */
-    }
-}
-
-.light-mode .Research{
-    h1 {
-        background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(147, 147, 147)); /* Gradient applied here */
-    }
-    .experience .MuiStack-root:hover {
-        background-color: $background-light-color; /* Slightly darker background */
-    }
-    .MuiChip-root {
-        color: $font-light-color; /* Slightly darker background */
-    }
-    .MuiChip-root:hover {
-        background-color: $background-light-color; /* Lighter background for chips */
-        color: $link-hover-color; /* Change text colour to a blue shade */
-    }
-}
-
-.dark-mode .history {
-  .item {
-    .left-col {
-      .logo {
-        img {
-          background-color: white;
-          border: 2px solid $background-dark-color;
-        }
-      }
-    }
-  }
-  .item:hover .left-col .logo img{
-    border:  2px solid $background-light-color;
-  }
-}
-
-.light-mode .history {
-  .item {
-    .left-col {
-      .logo {
-        img {
-          background-color: white;
-          border: 2px solid $background-light-color;
-        }
-      }
-    }
-  }
-  .item:hover .left-col .logo img{
-    border:  2px solid $background-dark-color;
-  }
-}
-
-a:hover {
-    color: $link-hover-color;
-    transition:
-      color .15s ease-in-out,
-      background-color .15s ease-in-out,
-      border-color .15s ease-in-out;
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

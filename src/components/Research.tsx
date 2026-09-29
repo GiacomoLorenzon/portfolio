@@ -1,230 +1,74 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  Divider,
-} from "@mui/material";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import AddIcon from "@mui/icons-material/Add";
-
-// Import CSS styling
-import "../assets/styles/Research.scss";
-
-// Import images
-import imperatives from "../assets/images/imperatives.png";
+import CloseIcon from "@mui/icons-material/Close";
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
 import brainum from "../assets/images/brainum.png";
 import lifex from "../assets/images/lifex.png";
+import sailing from "../assets/images/pst.png";
+import "../assets/styles/Research.scss";
 
-// boxes
-import Masonry from '@mui/lab/Masonry';
+const prionVideo = require("../assets/images/q_volume_rainbow.mp4");
 
-// exp
-import { Chip, Stack } from "@mui/material";
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
-import TerminalIcon from "@mui/icons-material/Terminal";
-import WebIcon from "@mui/icons-material/Web";
-import ScienceIcon from "@mui/icons-material/Science";
-import DataObjectIcon from "@mui/icons-material/DataObject";
-import SpeedIcon from '@mui/icons-material/Speed';
-
-const brain = require("../assets/images/q_volume_rainbow.mp4");
-
-interface ListItemData {
+interface Project {
   title: string;
+  context: string;
   description: string;
-  image: string;
-  video: string;
+  methods: string;
+  image?: string;
+  video?: string;
 }
 
-const data: ListItemData[] = [
-  {
-    title: "A discontinuous Galerkin method for the three-dimensional heterodimer model with application to prion-like proteins’ dynamics",
-    description:
-      "F. Antonietti, M. Corti, and G. Lorenzon presented a significant contribution to the numerical modelling of prion-like proteins' dynamics in their work, ''A discontinuous Galerkin method for the three-dimensional heterodimer model with application to prion-like proteins’ dynamics''. This study, published in the *Proceedings of the European Congress of Mathematics (2024)*, explores the use of a discontinuous Galerkin (DG) method to solve the complex, three-dimensional heterodimer model that underpins prion aggregation dynamics. The DG approach is particularly well-suited for handling the model’s intricate features, including nonlinearity, anisotropy, and the strong localisation of reactions. The authors apply this framework to prion-like proteins, offering new insights into their pathological misfolding and aggregation processes. Their methodology not only ensures robust stability and high accuracy but also demonstrates computational efficiency, making it a promising tool for large-scale simulations of protein misfolding. This work highlights the interdisciplinary fusion of applied mathematics and biophysics, paving the way for deeper understanding and potential therapeutic advances in neurodegenerative diseases.",
-    image: "",
-    video: brain,
-  },
-  {
-    title: "BraiNum project",
-    description: "The BraiNum project, developed at MOX (Modelling and Scientific Computing Laboratory) at Politecnico di Milano, focuses on advancing computational and mathematical methodologies for modelling brain structures and functions. The project leverages state-of-the-art numerical methods, data-driven approaches, and machine learning techniques to study the complexity of neural systems. By integrating high-resolution neuroimaging data with sophisticated computational models, BraiNum aims to provide deeper insights into brain dynamics, connectivity patterns, and neurological disorders. The project's interdisciplinary framework bridges mathematical modelling, neuroscience, and computer science, paving the way for innovative diagnostic tools and therapeutic strategies.",
-    image: brainum,
-    video: "",
-  },
-  {
-    title: "life-x project",
-    description:
-      "The LifeX project is a cutting-edge initiative centred on the development of a high-performance C++ Finite Element library, specifically tailored for mathematical modelling and numerical simulations in cardiac applications. By offering an optimised computational framework, LifeX addresses the complexities of simulating cardiac dynamics, including electrophysiology, biomechanics, and fluid-structure interactions. Its robust and scalable design allows researchers to solve large-scale problems with high accuracy and efficiency, making it ideal for applications such as patient-specific simulations and the study of heart pathologies. The project's emphasis on open collaboration and advanced numerical techniques fosters innovation in computational cardiology, ultimately contributing to improved diagnostic and therapeutic solutions.",
-    image: lifex,
-    video: "",
-  },
-  {
-    title: "Intermittent collective dynamics emerge from conflicting imperatives",
-    description:
-      "Intermittent collective dynamics arise when groups or systems respond to competing demands or conflicting objectives. These dynamics are characterised by phases of heightened activity interspersed with periods of relative quiescence. The conflict between imperatives—such as the tension between individual and collective interests, stability and change, or efficiency and creativity—generates patterns of interaction that are unpredictable yet patterned. This phenomenon is often observed in social movements, ecosystems, and organisational behaviour, where the interplay of divergent goals produces cycles of cooperation, competition, and reorganisation. Understanding these dynamics requires a multidisciplinary approach, blending insights from sociology, systems theory, and behavioural science to unravel how complex systems navigate internal and external contradictions.",
-    image: imperatives,
-    video: ""
-  },
+const researchThemes = [
+  { title: "Optimal Transport and Uncertainty Quantification", description: "Developing probabilistic neural models in which reference perturbations are transported through learnable dynamics to induce structured predictive distributions. The resulting law is trained directly using proper scoring rules, including the Energy Score, and regularised through geometric or kinetic transport costs.", topics: ["Predictive distributions", "Calibration", "Model misspecification"] },
+  { title: "Scientific Machine Learning", description: "Studying uncertainty-aware neural surrogates and operators for PDE models and field-valued outputs. The focus is spatially structured uncertainty, calibration, and robust learning when data are scarce or the computational model is misspecified.", topics: ["Neural surrogates", "PDEs", "Functional outputs"] },
+  { title: "Reliable Prediction for Pretrained Scientific Models", description: "Investigating uncertainty quantification for complex pretrained scientific models, including protein-structure prediction, with emphasis on interpretable predictive dispersion and reliable evaluation.", topics: ["Pretrained models", "Scientific prediction", "Reliability"] },
 ];
 
-const categories = [
-    {
-      title: "Programming Languages",
-      icon: <CodeIcon />,
-      skills: ["C", "C++ 17/20", "Bash", "MATLAB", "Python", "AMPL", "R", "TypeScript"],
-    },
-    {
-      title: "Data and Tools",
-      icon: <StorageIcon />,
-      skills: ["Docker", "SQL", "Git (CI/CD)", "Gephi", "Paraview", "OpenFoam"],
-    },
-    {
-      title: "Web and Markup",
-      icon: <WebIcon />,
-      skills: ["HTML5", "CSS3", "LaTeX", "SCSS", "React", "TypeScript", "Tailwind CSS"],
-    },
-    {
-      title: "Systems & Frameworks",
-      icon: <TerminalIcon />,
-      skills: ["UNIX", "Office"],
-    },
-    {
-      title: "Scientific Tools",
-      icon: <ScienceIcon />,
-      skills: ["Make", "MATLAB", "R", "Paraview", "Comsol", "freeFEM", "ansys", "openFOAM", "Basilisk"],
-    },
-    {
-      title: "Data Visualisation",
-      icon: <DataObjectIcon />,
-      skills: ["OpenFoam", "Gephi", "Paraview"],
-    },
-    {
-      title: "HPC",
-      icon: <SpeedIcon />,
-      skills: ["C++", "Bash", "Fortran", "OpenMP", "MPI"]
-    }
-  ];
+const publications = [
+  { year: "2026", title: "Optimal Transport Dropout for Structured Predictive Uncertainty", authors: "Giacomo Lorenzon, Francesco Regazzoni", venue: "arXiv preprint, arXiv:2609.33377", links: [{ label: "arXiv", href: "https://arxiv.org/abs/2609.33377" }] },
+  { year: "2024", title: "A discontinuous Galerkin method for the three-dimensional heterodimer model with application to prion-like proteins’ dynamics", authors: "Paola F. Antonietti, Mattia Corti, Giacomo Lorenzon", venue: "Proceedings of the European Congress of Mathematics, 2024", links: [{ label: "arXiv", href: "https://arxiv.org/abs/2407.16065" }] },
+];
 
-const Research: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<ListItemData | null>(null);
+const projects: Project[] = [
+  { title: "Numerical modelling of prion dynamics", context: "Master’s research · BraiNum", description: "Formulated and analysed discontinuous Galerkin discretisations for a three-dimensional heterodimer model of neurodegenerative protein propagation, including simulations on brain geometries reconstructed from medical images.", methods: "DG · reaction–diffusion PDEs · numerical analysis", image: brainum, video: prionVideo },
+  { title: "Cardiovascular scientific computing", context: "lifeᵡ", description: "Contributed to a high-performance C++ finite-element framework for cardiovascular modelling, working on parallel numerical methods, solver development and optimisation for large-scale simulations.", methods: "C++ · FEM · MPI · HPC", image: lifex },
+  { title: "Vascular haemodynamics", context: "Scientific computing project", description: "Developed finite-element and reduced-order models for vascular flow, with attention to numerical simulation, solver behaviour and reproducible computational workflows.", methods: "C++ · haemodynamics · reduced models" },
+  { title: "Hydrofoil analysis", context: "PoliMi Sailing Team", description: "Supported hydrofoil design through turbulence modelling and computational analysis within the performance team.", methods: "CFD · turbulence modelling", image: sailing },
+];
 
-  const [width] = useState(window.innerWidth);
-  const adjustedWidth = width - 5; // Subtract 26px from the height
+export function CurrentResearch() {
+  return <section className="content-section research-section" id="research" aria-labelledby="research-title">
+    <p className="section-kicker">Present work</p><h2 id="research-title">Current Research</h2>
+    <div className="research-grid">{researchThemes.map((theme) => <article className="research-card" key={theme.title}><h3>{theme.title}</h3><p>{theme.description}</p><ul className="topic-list" aria-label={`${theme.title} topics`}>{theme.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul></article>)}</div>
+  </section>;
+}
 
-  const handleItemClick = (item: ListItemData) => {
-    setSelectedItem(item);
-  };
+export function Publications() {
+  return <section className="content-section publications" id="publications" aria-labelledby="publications-title">
+    <p className="section-kicker">Research outputs</p><h2 id="publications-title">Publications and Preprints</h2>
+    <div className="publication-list">{publications.map((publication) => <article className="publication" key={publication.title}><p className="publication-year">{publication.year}</p><div><h3>{publication.title}</h3><p>{publication.authors}</p><p className="venue">{publication.venue}</p><div className="publication-links">{publication.links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label}<ArrowOutwardIcon aria-hidden="true" /></a>)}</div></div></article>)}</div>
+  </section>;
+}
 
-  const handleClose = () => {
-    setSelectedItem(null);
-  };
+function Research() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  return (
-    <div className="Research">
-      <h1>Research Activity</h1>
-      <>
-        {/* List Section */}
-        <List className="list">
-          {data.map((item, index) => (
-            <React.Fragment key={index}>
-              <ListItem
-                onClick={() => handleItemClick(item)}
-                className="list-item">
-                {/* Left Icon */}
-                <Box className="plus-icon"> <AddIcon fontSize="medium" /> </Box>
-                {/* Title and Text */}
-                <Box className="text-box">
-                  <ListItemText
-                    primary={<Typography className="title-text">{item.title}</Typography>}
-                    secondary={<Typography className="body-text">{item.description}</Typography>}
-                  />
-                </Box>
-              </ListItem>
-              {/* Divider (except after the last item) */}
-              {index < data.length - 1 && <Divider className="divider" />}
-            </React.Fragment>
-          ))}
-        </List>
-
-        {/* Dialog Section */}
-        {selectedItem && (
-          <Dialog open={!!selectedItem} onClose={handleClose} maxWidth="sm" fullWidth>
-            <DialogTitle sx={{ '@media (max-width: 600px)': { padding: '0.8em'}}}><div className="dialog-title">{selectedItem.title}</div></DialogTitle>
-            <DialogContent sx={{'@media (max-width: 600px)': { padding: '1em'}}}>
-              {/* Full Image */}
-              <Box
-                sx={{
-                  height: "300px",
-                  maxWidth: "100%",
-                  backgroundImage: `url(${selectedItem.image})`,
-                  backgroundSize: "90%",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  mb: '0',
-                  marginBottom: '-150px'
-                }}
-              />
-              <video
-                className="video"
-                src={selectedItem.video} // Replace with your video URL
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-              {/* Full Description */}
-              <Typography className="dialog-text">{selectedItem.description}</Typography>
-            </DialogContent>
-          </Dialog>
-        )}
-      </>
-
-      <h1>Experience</h1>
-      <div className="experience">
-        <Masonry
-          columns={{ xs: 1, sm: 1, md: 2 }} // Responsive columns for different breakpoints
-          spacing={2}>
-          {categories.map((category, index) => (
-            <Stack
-              key={index}
-              spacing={2}
-              sx={{
-                padding: "1rem",
-                borderRadius: "8px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                border: "1px solid #f4f4f4"
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                {category.icon}
-                <h3 style={{ margin: 0, fontSize: "1.25rem" }}>{category.title}</h3>
-              </div>
-              <div>
-                {category.skills.map((skill, skillIndex) => (
-                  <Chip
-                    key={skillIndex}
-                    label={skill}
-                    variant="outlined"
-                    sx={{
-                      margin: "0.25rem",
-                      fontWeight: "bold",
-                      fontSize: "0.9rem",
-                    }}
-                    className="chip"
-                  />
-                ))}
-              </div>
-            </Stack>
-          ))}
-        </Masonry>
-      </div>
-    </div>
-  );
-};
+  return <section className="content-section projects" id="projects" aria-labelledby="projects-title">
+    <p className="section-kicker">Previous work</p><h2 id="projects-title">Selected Projects</h2>
+    <div className="project-list">{projects.map((project) => <button className="project-trigger" type="button" key={project.title} onClick={() => setSelectedProject(project)} aria-label={`Open details for ${project.title}`}><span className="project-plus" aria-hidden="true"><AddIcon /></span><span className="project-summary"><span className="project-title">{project.title}</span><span className="methods">{project.methods}</span></span></button>)}</div>
+    <Dialog disableRestoreFocus disableScrollLock open={selectedProject !== null} onClose={() => setSelectedProject(null)} maxWidth="sm" fullWidth className="project-dialog-root" PaperProps={{ className: "project-dialog" }}>
+      {selectedProject && <>
+        <DialogTitle className="project-dialog-title"><span><small>{selectedProject.context}</small>{selectedProject.title}</span><IconButton onClick={() => setSelectedProject(null)} aria-label="Close project details"><CloseIcon /></IconButton></DialogTitle>
+        <DialogContent className="project-dialog-content">
+          {selectedProject.video && <video src={selectedProject.video} autoPlay loop muted playsInline aria-label={`Simulation for ${selectedProject.title}`} />}
+          {!selectedProject.video && selectedProject.image && <img src={selectedProject.image} alt="" />}
+          <p>{selectedProject.description}</p>
+          <p className="methods">{selectedProject.methods}</p>
+        </DialogContent>
+      </>}
+    </Dialog>
+  </section>;
+}
 
 export default Research;

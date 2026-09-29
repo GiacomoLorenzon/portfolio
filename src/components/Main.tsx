@@ -1,76 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
+import DownhillSkiingIcon from "@mui/icons-material/DownhillSkiing";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
+import EmailIcon from "@mui/icons-material/Email";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Button from "@mui/material/Button";
+import avatar from "../assets/images/avatar_circle.png";
+import "../assets/styles/Main.scss";
 
-// import from MUI
-import ButtonIcon from '@mui/icons-material/DownhillSkiing';
-import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-
-// import avatar image
-import avatar from '../assets/images/avatar_circle.png';
-// import Material-UI Button
-import Button from '@mui/material/Button';
-
-// import styling from scss
-import '../assets/styles/Main.scss';
+const profileLinks = [
+  { label: "GitHub profile", href: "https://github.com/GiacomoLorenzon", icon: <GitHubIcon /> },
+  { label: "Email Giacomo Lorenzon", href: "mailto:lorenzon.giacomo99@gmail.com", icon: <EmailIcon /> },
+  { label: "Curriculum vitae", href: "https://giacomolorenzon.github.io/curriculum_vitae/main.pdf", icon: <ContentPasteSearchIcon /> },
+  { label: "Book library", href: "https://giacomolorenzon.github.io/book-library/", icon: <AutoStoriesIcon /> },
+];
 
 function Main() {
-
-  const [height] = useState(window.innerHeight);
-  const adjustedHeight = height - 26; // Subtract 26px from the height
-  
-  const scrollToNextSection = () => {
-    // Scroll to the next section (Timeline)
-    setTimeout(() => {
-      window.scrollTo({ top: height, left: 0, behavior: 'smooth' });
-    }, 700); 
+  const scrollToAbout = () => {
+    window.setTimeout(() => {
+      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    }, 1000);
   };
 
   return (
-    <div className="container" style={{ height: `${adjustedHeight}px` }}>
-      <div className="about-section">
-        <div className="image-wrapper">
-          <img src={avatar} alt="Avatar" />
+    <header className="hero" id="top">
+      <div className="hero-content">
+        <div className="hero-primary">
+          <div className="image-wrapper">
+            <img src={avatar} alt="Giacomo Lorenzon" />
+          </div>
+          <div className="hero-copy">
+            <h1>Giacomo Lorenzon</h1>
+            <p className="positioning">PhD researcher in applied mathematics and probabilistic machine learning</p>
+            <div className="social-icons" aria-label="Profile links">
+              {profileLinks.map(({ label, href, icon }) => (
+                <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel="noreferrer" aria-label={label} title={label}>
+                  {icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="content">
-          <h1>Giacomo Lorenzon</h1>
-          <p>Mathematical Engineer, MSc</p>
-          <hr className="hrule" />
-          <div className="social_icons">
-            {/* GitHub icon */}
-            <a href="https://github.com/GiacomoLorenzon" target="_blank" rel="noreferrer">
-              <GitHubIcon style={{ fontSize: '1.2em', padding: '0', margin: '0' }}/>
-            </a>
-            <a href="mailto:lorenzon.giacomo99@gmail.com" target="_blank" rel="noreferrer">
-              <EmailIcon style={{ fontSize: '1.2em', padding: '0', margin: '0' }}/>
-            </a>
-            <a href="https://giacomolorenzon.github.io/curriculum_vitae/main.pdf" target="_blank" rel="noreferrer">
-              <ContentPasteSearchIcon style={{ fontSize: '1.2em', padding: '0', margin: '0' }} />
-            </a>
-            <a href="https://giacomolorenzon.github.io/book-library/" target="_blank" rel="noreferrer">
-              <AutoStoriesIcon style={{ fontSize: '1.2em', padding: '0', margin: '0' }} />
-            </a>
-          </div>
-          <div className="mobile_social_icons">
-            {/* Mobile version of the GitHub icon */}
-            <a href="https://github.com/GiacomoLorenzon" target="_blank" rel="noreferrer">
-            </a>
-          </div>
+        <div className="hero-secondary">
+          <p className="research-line">Uncertainty Quantification · Optimal Transport · Scientific Machine Learning</p>
+          <p className="hero-summary">I develop probabilistic and geometric methods for reliable machine-learning models, with applications to scientific computing.</p>
         </div>
       </div>
-      <Button
-        className="scroll-button"
-        variant="contained"
-        color="info"
-        size="large"
-        endIcon={<ButtonIcon />}
-        disableElevation
-        onClick={scrollToNextSection} 
-      >
+      <Button className="scroll-button" variant="contained" endIcon={<DownhillSkiingIcon />} disableElevation onClick={scrollToAbout}>
         More
       </Button>
-    </div>
+    </header>
   );
 }
 

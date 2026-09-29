@@ -1,181 +1,53 @@
-////////////////////////////////////////////////////////////////////////////////
-//
-// - container > index.scss
-//    |_ about-section
-//       |- image-wrapper
-//       |_ content
-//
-////////////////////////////////////////////////////////////////////////////////
-
-// import variables
-@import 'constants.scss';
-
-.container {
-  margin-left: $margin-left-body;
-  margin-right: $margin-right-body;
-
-  display: flex; /* Enables Flexbox */
-  flex-direction: column; /* Align items vertically */
-  align-items: center; /* Centres items horizontally */
-  justify-content: center; /* Centres items vertically */
-  width: $body-width;
-
-  .scroll-button{
-    margin: 80px;
-    text-transform: none; // Disables uppercase
-    border-top: 1px solid $light;
-
-    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(76, 76, 76)); /* Initial gradient background */
-    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
-
-    .MuiButton-endIcon {
-      transform: translateX(0px) translateY(0px) scale(1); /* Resets endIcon position and size */
-      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                  color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth return animation */
-      color: inherit; /* Resets colour smoothly */
-    }
-  }
-            
-  .scroll-button:hover {
-    background-image: linear-gradient(30deg, rgb(0, 0, 0), rgb(97, 97, 97));/* Gradient changes on hover */
-    transform: 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for background and transform */
-    
-    .MuiButton-endIcon {
-      transform: translateX(50px) translateY(20px) scale(1); /* Moves and enlarges the endIcon */
-      transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                    color 1.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth animation for transform and colour */
-    }
-  }
-} 
-
-.about-section {
-    display: flex; /* Enable Flexbox */
-    flex-direction: row; /* Ensure child elements are in a row */
-    justify-content: flex-start; /* Align children to the left horizontally */
-    align-items: center; /* Vertically centre the children */
-
-    width: 100%;
-
-    // avatar image 
-    .image-wrapper {
-        z-index: 2;
-        max-height: 170px;
-        margin: 1em;
-        img {
-            width: 170px;
-            max-width: 170px;
-            max-height: 170px;
-            border-radius: 50%;
-        }
-    }
-
-    // title, subtitle
-    .content {
-        text-align: left;
-        z-index: 2;
-        width: 100%;
-        padding: 1em;
-
-        .social_icons {
-            display: flex;
-            flex-direction: row;
-            gap: 1em;
-        }
-
-        .hrule {
-            border: none;
-            height: 2px; /* Thickness of the line */
-            margin: 1em 0;
-            width: 100%;
-            border-radius: 4px; /* Rounded edges */
-        }
-    }
-
-    h1 {
-        font-size: 2.3em;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-    }
-    p {
-        font-size: 1.5em;
-        margin-block-start: 0px;
-        margin-block-end: 0px;
-    }
-
-    .mobile_social_icons {
-        display: none;
-    }
+@import "constants.scss";
+.hero {
+  margin-left: $margin-left-body; margin-right: $margin-right-body; width: $body-width; min-height: calc(100vh - 90px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
-
-
-/* Mobile styles */
+.hero-content { display: flex; width: 100%; flex-direction: column; align-items: stretch; }
+.hero-primary { display: flex; width: 100%; flex-direction: row; align-items: center; }
+.image-wrapper { z-index: 2; max-height: 170px; margin: 1em; }
+.image-wrapper img { width: 170px; height: 170px; object-fit: cover; border-radius: 50%; }
+.hero-copy { width: 100%; padding: 1em; text-align: left; }
+.hero-copy h1 { margin: 0; font-size: 2.3em; }
+.positioning { margin: 0; font-size: 1.45em; line-height: 1.35; }
+.hero-secondary { width: 100%; box-sizing: border-box; padding: 1em; }
+.research-line {
+  margin: 0;
+  color: var(--keywords) !important;
+  font-size: .95em;
+  line-height: 1.5;
+}
+.hero-summary { max-width: none; margin: .8em 0 0; font-size: .95em; line-height: 1.55; color: var(--muted) !important; }
+.social-icons { display: flex; gap: 1em; margin-top: 1em; padding-top: 1em; border-top: 2px solid var(--text); }
+.social-icons a { display: inline-flex; }
+.social-icons svg { font-size: 1.2em; }
+.hero .scroll-button {
+  margin: 90px 70px 40px;
+  padding: .65em 1.4em;
+  border-radius: 999px;
+  text-transform: none;
+  border-top: 1px solid $light;
+  background-image: linear-gradient(30deg,#000,#4c4c4c);
+}
+.hero .scroll-button .MuiButton-endIcon {
+  transition: transform 1s cubic-bezier(.4,0,.2,1), color 1s cubic-bezier(.4,0,.2,1);
+}
+.hero .scroll-button:hover .MuiButton-endIcon,
+.hero .scroll-button:focus-visible .MuiButton-endIcon {
+  transform: translate(50px, 20px);
+  color: #000;
+}
+.hero .scroll-button:hover,
+.hero .scroll-button:focus-visible { background-image: linear-gradient(30deg,#8f8f8f,#d0d0d0); }
 @media (max-width: 600px) {
-  /* Adjust container */
-  .container {
-      margin-left: $margin-left-body-small;
-      margin-right: $margin-right-body-small;
-
-      width: $body-width-small; /* Ensure container spans full width on mobile */
-      padding: 0; /* Add some padding to the sides */
-      
-      .scroll-button {
-          margin-top: 17%;
-          margin-bottom: 0px;
-          padding: 10px 25px;
-          border-radius: 6px;
-          font-size: 1em;
-      }
-  }
-
-  /* About Section */
-  .about-section {
-      flex-direction: column; /* Stack content vertically */
-
-      .image-wrapper {
-          margin: 0px 33px 13px 33px;
-          max-height: 140px; /* Reduce image size for mobile */
-          img {
-              width: 140px;
-              max-width: 140px;
-              max-height: 140px;
-              border-radius: 50%;
-          }
-      }
-
-      .content {
-          padding: 1em;
-          width: 100%;
-          text-align: center;
-          
-          h1 {
-              font-size: 2.1em; /* Adjust title font size */
-          }
-
-          p {
-              font-size: 1.4em; /* Adjust paragraph font size */
-          }
-
-          .social_icons {
-              justify-content: center; /* Centre social icons */
-              gap: 1em;
-              font-size: 1.4em;
-          }
-
-          .hrule {
-              margin: 1em 0 1em 0;
-          }
-      }
-
-      /* Show mobile-specific social icons */
-      .mobile_social_icons {
-          display: flex;
-          justify-content: center;
-          gap: 2em;
-      }
-
-      /* Hide default social icons */
-      .social_icons {
-          display: none;
-      }
-  }
+  .hero { width: $body-width-small; margin-left: $margin-left-body-small; margin-right: $margin-right-body-small; min-height: calc(100vh - 75px); }
+  .hero-primary { flex-direction: column; }
+  .image-wrapper { margin: 0 33px 13px; max-height: 140px; }
+  .image-wrapper img { width: 140px; height: 140px; }
+  .hero-copy { box-sizing: border-box; text-align: center; }
+  .hero-secondary { text-align: center; padding-top: .5em; }
+  .hero-copy h1 { font-size: 2.1em; }
+  .positioning { font-size: 1.25em; }
+  .social-icons { justify-content: center; }
+  .hero .scroll-button { margin: 2.5em 0 0; }
 }

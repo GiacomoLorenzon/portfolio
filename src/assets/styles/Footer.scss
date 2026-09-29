@@ -4,32 +4,32 @@ footer {
   text-align: center;
   padding-top: 40px;
   padding-bottom: 50px;
-  width: $body-width;
-  margin-top: 100px;
-  margin-left: $margin-left-body;
-  margin-right: $margin-right-body;
+  border-top: 1px solid var(--border);
+  margin-top: var(--section-space);
   bottom: 0;
 
   svg {
-    width: 1.1em !important;
-    height: 1.1em !important;
-    margin-right: 10px;
+    width: 1.2em !important;
+    height: 1.2em !important;
   }
 
   p {
-    font-size: 1em;
+    font-size: var(--font-body);
   }
 
   a {
-    padding: 0.5em 0.5em 0.5em 0.5em;
+    display: inline-flex;
+    padding: .5em;
+  }
+
+  .footer-note {
+    color: var(--muted);
+    font-size: var(--font-small);
   }
 }
 
 @media (max-width: 600px) {
   footer {
-    width: $body-width-small;
-    margin-left: $margin-left-body-small;
-    margin-right: $margin-right-body-small;
     font-size: 1em;
   }
 }

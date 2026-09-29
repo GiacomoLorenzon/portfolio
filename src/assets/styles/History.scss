@@ -1,185 +1,43 @@
-@import 'constants.scss';
+.about-copy { font-size: var(--font-body); line-height: 1.6; margin: 0; }
+.languages { display: flex; align-items: center; gap: .5rem; color: var(--muted); margin-top: var(--content-gap); font-size: var(--font-small); }
+.languages svg { font-size: 1.1rem; }
 
-.history {
-  width: $body-width;
-  margin-left: $margin-left-body;
-  margin-right: $margin-right-body;
-  padding: 0;
-
-  h1 {
-    -webkit-background-clip: text; /* For Chrome/Safari */
-    background-clip: text; /* For Firefox */
-    color: transparent; /* Make text transparent so the gradient shows */
-    display: inline-block; /* Shrink-wrap the element around the text */
-    padding: 0;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
-  }
-
-  .item {
-    width: 100%;
-    display: flex;
-
-    .left-col {
-      width: 10%;
-      padding: 1em 1em 0 1em;
-      text-align: center;
-      display: flex; /* Added for aligning content */
-      flex-direction: column; /* Aligns logo and line vertically */
-      justify-content: center; /* Ensures vertical alignment */
-
-      .logo {
-        img {
-          width: 80%;
-          border-radius: 100%;
-          transition: all 0.3s ease-in-out;
-          opacity: 1;
-        }
-      }
-
-      .linker {
-        position: relative;
-        flex-grow: 1; /* Makes the linker grow to fill the vertical space */
-        display: flex;
-        justify-content: center; /* Horizontally centre the line */
-
-        .line {
-          width: 1.5px; /* Thickness of the line */
-          margin-top: 20%;
-          height: 80%; /* Full height of the container */
-        }
-      }
-    }
-
-    .right-col {
-      width: 77%;
-      padding: 1em;
-      display: flex; /* Added for aligning content */
-      flex-direction: column;
-      justify-content: center; /* Ensures vertical alignment */
-
-      .title {
-        font-weight: 600;
-        padding-bottom: 0.5em;
-        font-size: 1.2em;
-        width: 100%;
-      }
-      .what {
-        padding-bottom: 0.5em;
-        font-size: 1em;
-        width: 100%;
-      }
-      .grade {
-        padding-bottom: 0.5em;
-      }
-      .where-when {
-        display: flex;
-        flex-direction: row;
-        font-size: 1em;
-        .where {
-          font-style: italic;
-          padding-right: 1em;
-        }
-        .when {
-          font-style: normal;
-        }
-      }
-      .details {
-        font-size: 1em;
-      }
-
-      li {
-        padding-bottom: 0.5em;
-      }
-    }
-  }
+.education-list { width: 100%; }
+.education-entry { display: grid; grid-template-columns: 72px 1fr; gap: 1rem; padding: 0; }
+.education-entry p { margin: 0; }
+.education-entry h3 { margin: 0 0 .35rem; font-size: var(--font-subheading); }
+.education-marker { display: flex; flex-direction: column; align-items: center; min-height: 100%; }
+.education-marker img {
+  width: 54px; height: 54px; flex: 0 0 54px; box-sizing: border-box; padding: 5px;
+  border: 2px solid var(--background); border-radius: 50%; background: #fff; object-fit: contain;
+  transition: border-color .25s ease;
 }
-
-.list {
-  width: 100%;
-  border-style: 1px;
-  margin-bottom: 1em;
-
-  .el {
-    padding: 1em;
-    position: relative;
-    transition: transform 0.3s steps(5, end); /* Rigid/step-like animation */
-
-    .el-img {
-      text-align: center;
-      padding: 1em;
-
-      img {
-        max-width: 80px;
-      }
-    }
-  }
-}
-
-#recognitions {
-  li {
-    padding: 0 0 0.2em 0;
-  }
-}
+.education-entry:hover .education-marker img { border-color: var(--text); }
+.education-line { width: 1.5px; min-height: 42px; flex: 1; margin: .6rem 0; background: var(--text); opacity: .65; }
+.education-content { padding: .2rem 0 1.6rem; }
+.period, .institution, .detail, .education-meta { color: var(--muted); }
+.institution { color: var(--text) !important; font-weight: 600; }
+.education-meta { margin-top: .25rem !important; font-size: var(--font-small); }
+.period { font-variant-numeric: tabular-nums; font-weight: 400; }
+.education-details { margin: .7rem 0 0; padding-left: 1.2rem; }
+.detail { margin-top: .35rem; color: var(--muted); font-size: var(--font-small); line-height: 1.5; }
+.detail-label { color: var(--detail-label); font-weight: 400; }
+.academic-activity { margin-top: 1.5rem; padding: 0; }
+.academic-activity h3, .other-activities > h3 { margin: 0 0 .75rem; font-size: var(--font-subheading); }
+.academic-activity ul { margin: 0; padding-left: 1.2rem; }
+.academic-activity li { font-size: var(--font-small); line-height: 1.5; }
+.academic-activity li + li { margin-top: .45rem; }
+.academic-activity li span { color: var(--detail-label); }
+.other-activities { margin-top: 2rem; }
+.activity-list { border-top: 1px solid var(--border); }
+.activity-entry { display: grid; grid-template-columns: 54px 1fr; gap: var(--content-gap); align-items: center; padding: var(--row-space) 0; border-bottom: 1px solid var(--border); }
+.activity-entry img { width: 46px; height: 46px; object-fit: contain; }
+.activity-entry h4 { margin: 0 0 .25rem; color: var(--text); font-size: var(--font-body); font-weight: 500; }
+.activity-entry p { margin: 0; color: var(--muted); font-size: var(--font-small); line-height: 1.5; }
 
 @media (max-width: 600px) {
-  h1 {
-    font-size: x-large;
-  }
-
-  .el {
-    ul {
-      padding-left: 1.5em;
-    }
-  }
-
-  .history {
-    width: $body-width-small;
-    margin-left: $margin-left-body-small;
-    margin-right: $margin-right-body-small;
-
-    h1 {
-      margin-bottom: 0;
-    }
-
-    .item {
-      .left-col {
-        min-width: 45px;
-        padding: 0.5em 0.5em 0em 0em;
-        .logo {
-          max-height: 45px;
-          img {
-            width: 95%;
-            border-radius: 100%;
-          }
-        }
-        .linker {
-          .line {
-            width: 1px; /* Thickness of the line */
-            height: 98.5%; /* Full height of the container */
-          }
-        }
-      }
-      .right-col {
-        padding: 0.5em 0 0.5em 0;
-        .title {
-          font-size: medium;
-          font-weight: 700;
-        }
-        .where-when {
-          flex-direction: column;
-        }
-        li {
-          margin-left: -1.5em;
-          font-size: 0.9em;
-        }
-      }
-    }
-  }
-
-  #recognitions {
-    li {
-      margin-left: -1em;
-    }
-  }
+  .education-entry { grid-template-columns: 52px 1fr; gap: .7rem; }
+  .education-marker img { width: 44px; height: 44px; flex-basis: 44px; }
+  .education-content { padding-top: .1rem; }
+  .academic-activity { padding: 0; }
 }
